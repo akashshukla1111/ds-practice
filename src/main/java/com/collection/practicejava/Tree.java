@@ -2,6 +2,7 @@ package com.collection.practicejava;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Created by akasshukla on 5/20/17.
@@ -57,6 +58,35 @@ public class Tree {
         }
     }
 
+    public void spiralOrderLevelOrder(Node n) {
+        Queue<Node> queue = new LinkedList<>();
+        boolean flip = false;
+        queue.add(n);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            String val="";
+            while (size > 0) {
+                Node temp = queue.poll();
+                val = val+temp.data + " ";
+                if (temp.left != null) queue.add(temp.left);
+                if (temp.right != null) queue.add(temp.right);
+                size--;
+            }
+            if (flip)
+            System.out.print(val);
+            else {
+                String[] split = val.trim().split(" ");
+                String result="";
+                for (int i=split.length-1;i>=0;i--) {
+                    result=result+split[i]+" ";
+                }
+                System.out.print(result);
+            }
+            flip=!flip;
+
+        }
+    }
+
     public void inOrderRecursive(Node n) {
         if (n == null) return;
         inOrderRecursive(n.left);
@@ -78,7 +108,7 @@ public class Tree {
 
         Node successorNode = find(n, data);
         if (successorNode.right != null) {
-            return findMin(successorNode.right);
+            return findLeft(successorNode.right);
         } else {
             Node successor = null;
             Node ancestor = n;
@@ -94,7 +124,7 @@ public class Tree {
         }
     }
 
-    private Node findMin(Node node) {
+    private Node findLeft(Node node) {
         while (node != null && node.left != null) {
             node = node.left;
         }
@@ -144,7 +174,7 @@ public class Tree {
 
     }
 
-    public void rootToLeafSum(Node n,int sum,int givenSum){
+    public void rootToLeafSum(Node n, int sum, int givenSum){
         if (n==null) return;
         sum=sum+n.data;
         if (n.left==null && n.right ==null){
@@ -162,6 +192,64 @@ public class Tree {
         }
        return Math.max( maxSumFromLeafToRoot(n.left,sum),
         maxSumFromLeafToRoot(n.right,sum));
+    }
+
+    public void inorderTraversalWithOutRecursion(Node n){
+        Stack<Node> stack = new Stack<>();
+        findLeft(n,stack);
+        while (!stack.isEmpty()){
+            Node peek = stack.pop();
+            System.out.print(peek.data+" ");
+            if(peek.right!=null){
+                findLeft(peek.right,stack);
+            }
+        }
+    }
+    private void findLeft(Node n, Stack stack){
+       stack.push(n);
+        while (n!=null && n.left!=null){
+        stack.push(n.left);
+        n=n.left;
+        }
+    }
+    static int max =0;
+    public int diameter(Node n){
+        if(n==null) return 0;
+        int dia = heightWithRecursion(n.left)+heightWithRecursion(n.right)+1;
+        max=Math.max(dia,max);
+        int l = diameter(n.left);
+        int r = diameter(n.right);
+        return max;
+    }
+
+    public boolean childSumProperties(Node n){
+
+        if (n==null){
+         return true;
+        }
+       if (n.left==null&&n.right==null)
+           return true;
+        boolean l = childSumProperties(n.left);
+        boolean r = childSumProperties(n.right);
+        boolean flag=false;
+        if (n.left!=null&&n.data==n.left.data)
+            flag= true;
+        else if (n.right!=null&&n.data==n.right.data)
+            flag= true;
+        else if (n.left!=null && n.right!=null && n.data==n.left.data+n.right.data)
+            flag=true;
+        return l&r&flag;
+    }
+    public int hightBal(Node n){
+        if (n==null)
+            return 0;
+        int l = hightBal(n.left);
+        int r = hightBal(n.right);
+         if(l-r<=1)
+             return 1+Math.max(l,r);
+         else
+             return 0;
+
 
     }
 }

@@ -30,7 +30,7 @@ public class LinkedListTest {
 //        list.loop();
 //        list.insert(4);
 //        list.checkPal();
-//        Node node = list.delAlternate();
+//        NodeN node = list.delAlternate();
 //        list.show(node);
         list.reverseAltKthNode(3,0);
         list.show();

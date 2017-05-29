@@ -3,9 +3,6 @@ package com.collection.practicejava;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-
 /**
  * Created by akasshukla on 5/22/17.
  */
@@ -44,7 +41,15 @@ public class TreeTest {
         bstTree.left.right.left=new Node(8);
         bstTree.left.left.right=new Node(4);
         bstTree.right.left=new Node(11);
+        bstTree.right.left.left=new Node(10);
+        bstTree.right.left.left.left=new Node(10);
+        bstTree.right.left.left.left.left=new Node(10);
+        bstTree.right.left.left.left.left.left=new Node(10);
         bstTree.right.right=new Node(14);
+        bstTree.right.right.right=new Node(14);
+        bstTree.right.right.right.right=new Node(14);
+        bstTree.right.right.right.right.right=new Node(14);
+        bstTree.right.right.right.right.right.right=new Node(14);
     }
 
     @Test
@@ -71,9 +76,20 @@ public class TreeTest {
     }
 
     @Test
+    public void spiralLevelOrderWithOutRecursion() throws Exception {
+        System.out.println("print level order bstTree");
+        tree.spiralOrderLevelOrder(bstTree);
+    }
+
+    @Test
     public void inOrderRecursive() throws Exception {
         System.out.println("InOrder traverse");
         tree.inOrderRecursive(bstTree);
+    }
+
+    @Test
+    public void inorderTraversalWithOutRecursion() throws Exception {
+        tree.inorderTraversalWithOutRecursion(bstTree);
     }
 
     @Test
@@ -98,11 +114,27 @@ public class TreeTest {
 
     @Test
     public void sumFromRootToLeaf() throws Exception {
-        tree.rootToLeafSum(bstTree,0,34);
+//        Node tempToLeafSum(bstTree,0,34);
     }
 
     @Test
     public void maxLeafToRootSum() throws Exception {
         System.out.println(tree.maxSumFromLeafToRoot(bstTree,0));
+    }
+
+    @Test
+    public void diameter() throws Exception {
+        System.out.println(tree.diameter(bstTree));
+    }
+
+    @Test
+    public void childSum() throws Exception {
+        Node temp = new Node(10);
+        temp.left = new Node(8);
+        temp.right = new Node(2);
+        temp.left.left = new Node(3);
+        temp.left.right = new Node(5);
+        temp.right.right = new Node(3);
+        System.out.println(tree.childSumProperties(temp));
     }
 }
