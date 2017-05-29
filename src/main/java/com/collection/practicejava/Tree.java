@@ -240,6 +240,25 @@ public class Tree {
             flag=true;
         return l&r&flag;
     }
+
+    public int treeSumProp(Node n){
+
+        if (n==null){
+            return 1;
+        }
+        if ( n.left==null && n.right==null){
+            return 1;
+        }
+        int ls = treeSumProp(n.left);
+        int rs = treeSumProp(n.right);
+
+        if (ls!=0&&rs!=0){
+           if (n.left==null&&n.right==null){
+
+           }
+        }
+return 0;
+    }
     public int hightBal(Node n){
         if (n==null)
             return 0;
