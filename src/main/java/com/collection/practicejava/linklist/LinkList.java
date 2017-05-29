@@ -1,4 +1,4 @@
-package com.collection.linklist;
+package com.collection.practicejava.linklist;
 
 public class LinkList implements ILinkList {
 

@@ -1,4 +1,4 @@
-package com.collection.practicejava;
+package com.geeksforgeeks.practice;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -9,6 +9,8 @@ import java.util.Stack;
  */
 public class Tree {
 
+
+    static int max = 0;
 
     public void toPrint(Node n) {
         if (n == null)
@@ -64,25 +66,25 @@ public class Tree {
         queue.add(n);
         while (!queue.isEmpty()) {
             int size = queue.size();
-            String val="";
+            String val = "";
             while (size > 0) {
                 Node temp = queue.poll();
-                val = val+temp.data + " ";
+                val = val + temp.data + " ";
                 if (temp.left != null) queue.add(temp.left);
                 if (temp.right != null) queue.add(temp.right);
                 size--;
             }
             if (flip)
-            System.out.print(val);
+                System.out.print(val);
             else {
                 String[] split = val.trim().split(" ");
-                String result="";
-                for (int i=split.length-1;i>=0;i--) {
-                    result=result+split[i]+" ";
+                String result = "";
+                for (int i = split.length - 1; i >= 0; i--) {
+                    result = result + split[i] + " ";
                 }
                 System.out.print(result);
             }
-            flip=!flip;
+            flip = !flip;
 
         }
     }
@@ -174,102 +176,142 @@ public class Tree {
 
     }
 
-    public void rootToLeafSum(Node n, int sum, int givenSum){
-        if (n==null) return;
-        sum=sum+n.data;
-        if (n.left==null && n.right ==null){
-            if (sum==givenSum) System.out.println("true");
+    public void rootToLeafSum(Node n, int sum, int givenSum) {
+        if (n == null) return;
+        sum = sum + n.data;
+        if (n.left == null && n.right == null) {
+            if (sum == givenSum) System.out.println("true");
         }
-        rootToLeafSum(n.left,sum,givenSum);
-        rootToLeafSum(n.right,sum,givenSum);
+        rootToLeafSum(n.left, sum, givenSum);
+        rootToLeafSum(n.right, sum, givenSum);
     }
 
-    public int maxSumFromLeafToRoot(Node n, int sum){
-        if (n==null) return 0;
-        sum=sum+n.data;
-        if (n.left==null && n.right ==null){
+    public int maxSumFromLeafToRoot(Node n, int sum) {
+        if (n == null) return 0;
+        sum = sum + n.data;
+        if (n.left == null && n.right == null) {
             return sum;
         }
-       return Math.max( maxSumFromLeafToRoot(n.left,sum),
-        maxSumFromLeafToRoot(n.right,sum));
+        return Math.max(maxSumFromLeafToRoot(n.left, sum),
+                maxSumFromLeafToRoot(n.right, sum));
     }
 
-    public void inorderTraversalWithOutRecursion(Node n){
+    public void inorderTraversalWithOutRecursion(Node n) {
         Stack<Node> stack = new Stack<>();
-        findLeft(n,stack);
-        while (!stack.isEmpty()){
+        findLeft(n, stack);
+        while (!stack.isEmpty()) {
             Node peek = stack.pop();
-            System.out.print(peek.data+" ");
-            if(peek.right!=null){
-                findLeft(peek.right,stack);
+            System.out.print(peek.data + " ");
+            if (peek.right != null) {
+                findLeft(peek.right, stack);
             }
         }
     }
-    private void findLeft(Node n, Stack stack){
-       stack.push(n);
-        while (n!=null && n.left!=null){
-        stack.push(n.left);
-        n=n.left;
+
+    private void findLeft(Node n, Stack stack) {
+        stack.push(n);
+        while (n != null && n.left != null) {
+            stack.push(n.left);
+            n = n.left;
         }
     }
-    static int max =0;
-    public int diameter(Node n){
-        if(n==null) return 0;
-        int dia = heightWithRecursion(n.left)+heightWithRecursion(n.right)+1;
-        max=Math.max(dia,max);
+
+    public int diameter(Node n) {
+        if (n == null) return 0;
+        int dia = heightWithRecursion(n.left) + heightWithRecursion(n.right) + 1;
+        max = Math.max(dia, max);
         int l = diameter(n.left);
         int r = diameter(n.right);
         return max;
     }
 
-    public boolean childSumProperties(Node n){
+    public boolean childSumProperties(Node n) {
 
-        if (n==null){
-         return true;
+        if (n == null) {
+            return true;
         }
-       if (n.left==null&&n.right==null)
-           return true;
+        if (n.left == null && n.right == null)
+            return true;
         boolean l = childSumProperties(n.left);
         boolean r = childSumProperties(n.right);
-        boolean flag=false;
-        if (n.left!=null&&n.data==n.left.data)
-            flag= true;
-        else if (n.right!=null&&n.data==n.right.data)
-            flag= true;
-        else if (n.left!=null && n.right!=null && n.data==n.left.data+n.right.data)
-            flag=true;
-        return l&r&flag;
+        boolean flag = false;
+        if (n.left != null && n.data == n.left.data)
+            flag = true;
+        else if (n.right != null && n.data == n.right.data)
+            flag = true;
+        else if (n.left != null && n.right != null && n.data == n.left.data + n.right.data)
+            flag = true;
+        return l & r & flag;
     }
 
-    public int treeSumProp(Node n){
+    private boolean isLeafNode(Node n) {
+        if (n != null && n.left == null && n.right == null) {
+            return true;
+        }
+        return false;
+    }
 
-        if (n==null){
+    public boolean isTreeSum(Node n){
+        int flag=treeSumProp(n);
+        if (flag==1) return true;
+        return false;
+    }
+    private int treeSumProp(Node n) {
+
+        if (n == null) {
             return 1;
         }
-        if ( n.left==null && n.right==null){
+        if (isLeafNode(n)) {
             return 1;
         }
         int ls = treeSumProp(n.left);
         int rs = treeSumProp(n.right);
 
-        if (ls!=0&&rs!=0){
-           if (n.left==null&&n.right==null){
+        if (ls != 0 && rs != 0) {
+            if (n.left == null) {
+                ls = 0;
+            } else if (isLeafNode(n.left)) {
+                ls = n.left.data;
+            } else {
+                ls = 2 * n.left.data;
+            }
 
-           }
+            if (n.right == null) {
+                rs = 0;
+            } else if (isLeafNode(n.right)) {
+                rs = n.right.data;
+            } else {
+                rs = 2 * n.right.data;
+            }
+
+            if (n.data == ls + rs) {
+                return 1;
+            }
         }
-return 0;
+        return 0;
     }
-    public int hightBal(Node n){
-        if (n==null)
+
+    public int hightBal(Node n) {
+        if (n == null)
             return 0;
         int l = hightBal(n.left);
         int r = hightBal(n.right);
-         if(l-r<=1)
-             return 1+Math.max(l,r);
-         else
-             return 0;
+        if (l - r <= 1)
+            return 1 + Math.max(l, r);
+        else
+            return 0;
 
 
+    }
+
+    public void printLeft(Node n , int height,boolean flag){
+        if (n==null) return;
+        printLeft(n.left,height--, flag);
+        if (flag){
+            System.out.print(n.data+" ");
+            flag=false;
+        }
+        printLeft(n.right,height--, flag);
     }
 }
 

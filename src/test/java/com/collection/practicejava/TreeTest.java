@@ -1,5 +1,7 @@
 package com.collection.practicejava;
 
+import com.geeksforgeeks.practice.Node;
+import com.geeksforgeeks.practice.Tree;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -136,5 +138,16 @@ public class TreeTest {
         temp.left.right = new Node(5);
         temp.right.right = new Node(3);
         System.out.println(tree.childSumProperties(temp));
+    }
+
+    @Test
+    public void treeSumProp() throws Exception {
+        Node temp = new Node(26);
+        temp.left = new Node(10);
+        temp.right = new Node(3);
+        temp.left.left = new Node(6);
+        temp.left.right = new Node(3);
+        temp.right.right = new Node(3);
+        System.out.println(tree.isTreeSum(temp));
     }
 }

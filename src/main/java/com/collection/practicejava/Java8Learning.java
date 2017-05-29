@@ -11,10 +11,6 @@ public class Java8Learning {
         //with type declaration
         MathOperation addition =  (int a, int b) -> (a + b);
 
-
-
-
-
         //with out type declaration
         MathOperation subtraction = (int a, int b) -> a - b;
 

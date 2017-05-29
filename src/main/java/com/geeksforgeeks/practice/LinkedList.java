@@ -7,12 +7,12 @@ import static java.util.Objects.nonNull;
 
 public class LinkedList {
 
-    Node prev = null;
-    Node t;
+    INode prev = null;
+    INode t;
     boolean flag = false;
-    Node tempp;
+    INode tempp;
     boolean fg = true;
-    private Node head;
+    private INode head;
 
     public LinkedList() {
         this.head = null;
@@ -20,9 +20,9 @@ public class LinkedList {
 
     public void addHead(int value) {
         if (head == null) {
-            head = new Node(value);
+            head = new INode(value);
         } else {
-            Node temp = new Node(value);
+            INode temp = new INode(value);
             temp.next = head;
             head = temp;
         }
@@ -33,7 +33,7 @@ public class LinkedList {
     }
 
     public void show() {
-        Node temp = head;
+        INode temp = head;
         while (temp != null) {
             System.out.print(temp.getData() + " ");
             temp = temp.getNext();
@@ -42,7 +42,7 @@ public class LinkedList {
         System.out.println("");
     }
 
-    public void show(Node temp) {
+    public void show(INode temp) {
         while (temp != null) {
             System.out.print(temp.getData() + " ");
             temp = temp.getNext();
@@ -51,7 +51,7 @@ public class LinkedList {
         System.out.println("");
     }
 
-    private int lenthOfList(Node node) {
+    private int lenthOfList(INode node) {
         if (node == null) return 0;
         return 1 + lenthOfList(node.next);
     }
@@ -61,7 +61,7 @@ public class LinkedList {
     }
 
     public boolean search(int val) {
-        Node temp = head;
+        INode temp = head;
         while (temp != null) {
             if (val != temp.getData())
                 temp = temp.next;
@@ -73,8 +73,8 @@ public class LinkedList {
     }
 
     public int middleElement() {
-        Node temp = head;
-        Node temp2 = head;
+        INode temp = head;
+        INode temp2 = head;
         while (temp2 != null && temp2.next != null) {
             temp = temp.next;
             temp2 = temp2.next.next;
@@ -84,8 +84,8 @@ public class LinkedList {
 
     public void reverse() {
 
-        Node temp = null;
-        Node next;
+        INode temp = null;
+        INode next;
 
         while (head != null) {
             next = head.next;
@@ -96,9 +96,9 @@ public class LinkedList {
         head = temp;
     }
 
-    private Node reversefun(Node head) {
+    private INode reversefun(INode head) {
         if (nonNull(head)) {
-            Node temp = head.next;
+            INode temp = head.next;
             head.next = prev;
             prev = head;
             reversefun(temp);
@@ -108,7 +108,7 @@ public class LinkedList {
         return t;
     }
 
-    public boolean loop(Node slow, Node fast) {
+    public boolean loop(INode slow, INode fast) {
         if (fast == null || fast.next == null) {
             return false;
         }
@@ -123,13 +123,13 @@ public class LinkedList {
     }
 
     public void reverseRecursive() {
-        Node reversefun = reversefun(head);
+        INode reversefun = reversefun(head);
         show(reversefun);
     }
 
-    private Node insertElement(Node list, Node element) {
-        Node prev = list;
-        Node current = list;
+    private INode insertElement(INode list, INode element) {
+        INode prev = list;
+        INode current = list;
 
         if (current == null || current.data >= element.data) {
             element.next = current;
@@ -146,12 +146,12 @@ public class LinkedList {
     }
 
     public void insert(int val) {
-        Node node = insertElement(head, new Node(val));
+        INode node = insertElement(head, new INode(val));
         head = node;
         show();
     }
 
-    public boolean pal(Node h) {
+    public boolean pal(INode h) {
         tempp = head;
         if (h == null) {
             return false;
@@ -172,11 +172,11 @@ public class LinkedList {
         System.out.println(pal);
     }
 
-    public void removeDup(Node current) {
+    public void removeDup(INode current) {
         if (current == null) {
             return;
         }
-        Node prev = current;
+        INode prev = current;
         if (current.next != null && current.data == current.next.data) {
             current = current.next.next;
             prev.next = current;
@@ -186,9 +186,9 @@ public class LinkedList {
         removeDup(current);
     }
 
-    public void removeDuplicate(Node current) {
-        Node list = current;
-        Node prev;
+    public void removeDuplicate(INode current) {
+        INode list = current;
+        INode prev;
         while (current != null) {
             prev = current;
             if (current.next != null && current.data == current.next.data) {
@@ -205,9 +205,9 @@ public class LinkedList {
         show();
     }
 
-    public Node delAlternate() {
-        Node current = head;
-        Node next;
+    public INode delAlternate() {
+        INode current = head;
+        INode next;
         if (isNull(current) || isNull(current.next)) {
             return current;
         }
@@ -219,12 +219,12 @@ public class LinkedList {
     }
 
     public void splitTwoLinkedList() {
-        Node current = head;
+        INode current = head;
         if (!isNull(current) && !isNull(current.next)) {
-            Node list1 = current;
-            Node list2 = current.next;
-            Node h1 = list1;
-            Node h2 = list2;
+            INode list1 = current;
+            INode list2 = current.next;
+            INode h1 = list1;
+            INode h2 = list2;
             while (!isNull(list1) && !isNull(list2)) {
                 list1.next = list1.next.next;
                 list1 = list1.next;
@@ -239,9 +239,9 @@ public class LinkedList {
     }
 
     public void delRight() {
-        Node current = head;
-        Node prev = new Node();
-        Node next = current.next;
+        INode current = head;
+        INode prev = new INode();
+        INode next = current.next;
         boolean flag = true;
         while (!isNull(next)) {
             if (current.data < next.data) {
@@ -262,15 +262,15 @@ public class LinkedList {
     }
 
     public void segEvenAndOdd() {
-        Node current = head;
-        Node prev = new Node();
-        Node tail = null;
-        Node tempPrev = prev;
+        INode current = head;
+        INode prev = new INode();
+        INode tail = null;
+        INode tempPrev = prev;
 
         while (current != null) {
             if (current.data % 2 != 0) {
                 prev.next = current.next;
-                Node temp = current;
+                INode temp = current;
                 current = current.next;
                 tail = createTail(temp, tail);
             } else {
@@ -282,21 +282,21 @@ public class LinkedList {
         head=tempPrev.next;
     }
 
-    private Node createTail(Node newNode, Node tail) {
-        newNode.next = tail;
-        tail = newNode;
+    private INode createTail(INode newINode, INode tail) {
+        newINode.next = tail;
+        tail = newINode;
         return tail;
     }
 
-    public void reverseAltKthNode(int k,int l){
-        Node curren=head;
-        Node last=new Node();
+    public void reverseAltKthINode(int k,int l){
+        INode curren=head;
+        INode last=new INode();
         boolean flags=true;
         while (curren!=null){
         int t=k;
-        Node first=curren;
-            Node prev=null;
-            Node next=null;
+       INode first=curren;
+            INode prev=null;
+            INode next=null;
             while (curren!=null && t>0){
                 next=curren.next;
                 curren.next=prev;
@@ -321,16 +321,16 @@ public class LinkedList {
     }
 }
 
-class Node {
+class INode {
     Integer data;
-    Node next;
+    INode next;
 
-    public Node() {
+    public INode() {
         this.data = null;
         this.next = null;
     }
 
-    public Node(int data) {
+    public INode(int data) {
         this.data = data;
         this.next = null;
     }
@@ -339,11 +339,11 @@ class Node {
         return data;
     }
 
-    public Node getNext() {
+    public INode getNext() {
         return next;
     }
 
-    public void setNext(Node next) {
+    public void setNext(INode next) {
         this.next = next;
     }
 }
