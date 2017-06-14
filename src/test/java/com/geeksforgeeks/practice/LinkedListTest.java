@@ -32,7 +32,7 @@ public class LinkedListTest {
 //        list.checkPal();
 //        NodeN node = list.delAlternate();
 //        list.show(node);
-        list.reverseAltKthNode(3,0);
+        list.reverseAltKthINode(3,0);
         list.show();
     }
 

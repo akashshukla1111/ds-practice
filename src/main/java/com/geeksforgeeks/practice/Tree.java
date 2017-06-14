@@ -1,5 +1,6 @@
 package com.geeksforgeeks.practice;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -313,6 +314,56 @@ public class Tree {
         }
         printLeft(n.right,height--, flag);
     }
+
+    public void verticalSum(Node n, HashMap<Integer,Integer> map, int count){
+        if(n==null) return;
+
+        map.put(count,  n.data + (map.get(count) == null ? 0 : map.get(count)));
+        verticalSum(n.left,map,count+1);
+        verticalSum(n.right,map,count-1);
+
+    }
+
+    public  void printBoundary(Node n){
+        printLeft(n);
+        printLeaves(n);
+        printRight(n.right);
+    }
+
+    private void printRight(Node n) {
+        if (n!=null) {
+            if (n.right!=null){
+                printRight(n.right);
+                System.out.println(n.data+" ");
+            } else if (n.left !=null){
+                printRight(n.left);
+                System.out.println(n.data+" ");
+            }
+        }
+    }
+
+    private void printLeaves(Node n) {
+        if (n==null) return;
+        printLeaves(n.left);
+        if (n.left==null && n.right==null)
+            System.out.println(n.data + " ");
+        printLeaves(n.right);
+    }
+
+    private void printLeft(Node n) {
+        if (n!=null){
+            if (n.left!=null){
+                System.out.println(n.data+" ");
+                printLeft(n.left);
+
+            }else if (n.right!=null){
+                System.out.println(n.data+" ");
+                printLeft(n.right);
+            }
+        }
+    }
+
+
 }
 
 

@@ -1,14 +1,28 @@
-package com.collection.practicejava;
+package com.geeksforgeeks.practice;
 
-import com.geeksforgeeks.practice.Node;
 import com.geeksforgeeks.practice.Tree;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+
+import static javax.script.ScriptEngine.FILENAME;
 
 /**
  * Created by akasshukla on 5/22/17.
  */
 public class TreeTest {
+    @Test
+    public void printBoundary() throws Exception {
+        tree.printBoundary(getTree());
+    }
 
     Node bstTree;
     Node sTree;
@@ -131,23 +145,86 @@ public class TreeTest {
 
     @Test
     public void childSum() throws Exception {
-        Node temp = new Node(10);
-        temp.left = new Node(8);
-        temp.right = new Node(2);
-        temp.left.left = new Node(3);
-        temp.left.right = new Node(5);
-        temp.right.right = new Node(3);
-        System.out.println(tree.childSumProperties(temp));
+        System.out.println(tree.childSumProperties(getTree()));
     }
 
     @Test
     public void treeSumProp() throws Exception {
+        Node temp = getTree();
+        System.out.println(tree.isTreeSum(temp));
+    }
+
+    private Node getTree() {
         Node temp = new Node(26);
         temp.left = new Node(10);
         temp.right = new Node(3);
         temp.left.left = new Node(6);
         temp.left.right = new Node(3);
         temp.right.right = new Node(3);
-        System.out.println(tree.isTreeSum(temp));
+        return temp;
+    }
+
+    @Test
+    public void verticalSum() throws Exception {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        tree.verticalSum(getTree(), map,0);
+        System.out.println(map);
+
+    }
+
+    @Test
+    public void hashcode() throws Exception {
+        Object a = new Object();
+        Object b = new Object();
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(a.hashCode());
+        System.out.println(b.hashCode());
+    }
+
+
+    @Test
+    public void testing() throws Exception {
+        HashSet<Integer> set = new HashSet<>();
+        System.out.println(set.add(4));
+        System.out.println(set.add(5));
+        System.out.println(set.add(5));
+        
+
+    }
+
+    @Test
+    public void exception()  {
+         int a = 0;
+         int b = 10;
+        System.out.println(b/a);
+    }
+
+    String b;
+    String c;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TreeTest treeTest = (TreeTest) o;
+
+        if (b != null ? !b.equals(treeTest.b) : treeTest.b != null) return false;
+        return c != null ? c.equals(treeTest.c) : treeTest.c == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = b != null ? b.hashCode() : 0;
+        result = 31 * result + (c != null ? c.hashCode() : 0);
+        return result;
+    }
+
+    @Test
+    public void name() throws Exception {
+       b="c";
+       c="a";
+        System.out.println(hashCode());
     }
 }
