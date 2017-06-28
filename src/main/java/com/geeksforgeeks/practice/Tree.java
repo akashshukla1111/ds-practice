@@ -12,6 +12,8 @@ public class Tree {
 
 
     static int max = 0;
+    private boolean right;
+    private boolean left;
 
     public void toPrint(Node n) {
         if (n == null)
@@ -88,6 +90,36 @@ public class Tree {
             flip = !flip;
 
         }
+    }
+
+    public void checkCompleteBinaryTree(Node n) {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(n);
+        boolean check=true;
+        while (!queue.isEmpty() && check) {
+            int size = queue.size();
+            while (size > 0) {
+                Node temp = queue.poll();
+                if (!isFullNode(temp)){
+                check = isNotFullNodeWithLeftLeafNode(temp);
+                }
+                if (temp.left != null) queue.add(temp.left);
+                if (temp.right != null) queue.add(temp.right);
+                size--;
+            }
+        }
+        System.out.println( "this is "+ check +" complete");
+    }
+
+    private boolean isNotFullNodeWithLeftLeafNode(Node temp) {
+        return temp!=null && (isLeafNode(temp)? true : (temp.left!=null && isLeafNode(temp.left)));
+
+    }
+
+    private boolean isFullNode(Node temp) {
+        if(temp!=null && temp.left!=null && temp.right!=null)
+            return true;
+        return false;
     }
 
     public void inOrderRecursive(Node n) {
@@ -252,11 +284,12 @@ public class Tree {
         return false;
     }
 
-    public boolean isTreeSum(Node n){
-        int flag=treeSumProp(n);
-        if (flag==1) return true;
+    public boolean isTreeSum(Node n) {
+        int flag = treeSumProp(n);
+        if (flag == 1) return true;
         return false;
     }
+
     private int treeSumProp(Node n) {
 
         if (n == null) {
@@ -305,64 +338,154 @@ public class Tree {
 
     }
 
-    public void printLeft(Node n , int height,boolean flag){
-        if (n==null) return;
-        printLeft(n.left,height--, flag);
-        if (flag){
-            System.out.print(n.data+" ");
-            flag=false;
+    public void printLeft(Node n, int height, boolean flag) {
+        if (n == null) return;
+        printLeft(n.left, height--, flag);
+        if (flag) {
+            System.out.print(n.data + " ");
+            flag = false;
         }
-        printLeft(n.right,height--, flag);
+        printLeft(n.right, height--, flag);
     }
 
-    public void verticalSum(Node n, HashMap<Integer,Integer> map, int count){
-        if(n==null) return;
+    public void verticalSum(Node n, HashMap<Integer, Integer> map, int count) {
+        if (n == null) return;
 
-        map.put(count,  n.data + (map.get(count) == null ? 0 : map.get(count)));
-        verticalSum(n.left,map,count+1);
-        verticalSum(n.right,map,count-1);
+        map.put(count, n.data + (map.get(count) == null ? 0 : map.get(count)));
+        verticalSum(n.left, map, count + 1);
+        verticalSum(n.right, map, count - 1);
 
     }
 
-    public  void printBoundary(Node n){
+    public void printBoundary(Node n) {
         printLeft(n);
         printLeaves(n);
         printRight(n.right);
     }
 
     private void printRight(Node n) {
-        if (n!=null) {
-            if (n.right!=null){
+        if (n != null) {
+            if (n.right != null) {
                 printRight(n.right);
-                System.out.println(n.data+" ");
-            } else if (n.left !=null){
+                System.out.println(n.data + " ");
+            } else if (n.left != null) {
                 printRight(n.left);
-                System.out.println(n.data+" ");
+                System.out.println(n.data + " ");
             }
         }
     }
 
     private void printLeaves(Node n) {
-        if (n==null) return;
+        if (n == null) return;
         printLeaves(n.left);
-        if (n.left==null && n.right==null)
+        if (n.left == null && n.right == null)
             System.out.println(n.data + " ");
         printLeaves(n.right);
     }
 
     private void printLeft(Node n) {
-        if (n!=null){
-            if (n.left!=null){
-                System.out.println(n.data+" ");
+        if (n != null) {
+            if (n.left != null) {
+                System.out.println(n.data + " ");
                 printLeft(n.left);
 
-            }else if (n.right!=null){
-                System.out.println(n.data+" ");
+            } else if (n.right != null) {
+                System.out.println(n.data + " ");
                 printLeft(n.right);
             }
         }
     }
 
+    public boolean ancestor(Node n, int target) {
+
+        if (n == null) return false;
+
+        if (n.data == target) {
+            return true;
+        }
+        boolean left = ancestor(n.left, target);
+        boolean right = ancestor(n.right, target);
+        if (left || right) {
+            System.out.print(n.data + " ");
+            return true;
+        }
+        return false;
+    }
+
+    public void ancestort(Node n, int target, String s) {
+
+        if (n == null) return;
+        if(n.data==target){
+            System.out.println(s);
+        }
+        ancestort(n.left, target, s+n.data+" ");
+        ancestort(n.right, target, s+n.data+" ");
+    }
+
+    /*Consider a coding system for alphabets to integers where ‘a’ is represented as 1, ‘b’ as 2, .. ‘z’ as 26.
+    Given an array of digits (1 to 9) as input, write a function that prints all valid interpretations of input array.
+    Input: {1, 1}
+    Output: ("aa", 'k")
+            [2 interpretations: aa(1, 1), k(11)]
+
+    Input: {1, 2, 1}
+    Output: ("aba", "au", "la")
+            [3 interpretations: aba(1,2,1), au(1,21), la(12,1)]
+
+    Input: {9, 1, 8}
+    Output: {"iah", "ir"}
+    [2 interpretations: iah(9,1,8), ir(9,18)]*/
+    
+    char[] ch = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    public void possibleInterpretations(int[] arr, int start){
+
+        if (start >= arr.length-1) {
+            for (int i=0; i< arr.length ; i++){
+                System.out.print( ch[arr[i]-1]+ " " );
+            }
+                System.out.println();
+            return;
+        }
+
+        int ix=start;
+        if (arr[ix]<=26){
+           arr[ix] = arr[ix];
+           possibleInterpretations(arr,ix+1);
+       }
+
+       int[] temp=new int[arr.length-1];
+       if (ix+1<=temp.length && arr[ix]*10+arr[ix+1]<=26) {
+               boolean flag=false;
+           for (int j = 0; j < temp.length; j++) {
+               if (j == ix) {
+                   temp[j] = arr[ix]*10 + arr[ix + 1];
+                    flag=true;
+               } else if(flag){
+                   temp[j] = arr[j+1];
+               } else{
+                   temp[j] = arr[j];
+               }
+           }
+//           System.out.println(temp);
+           possibleInterpretations(temp, ix + 1);
+       }
+    }
+
+    public int deepestOddLevelNode(Node n , int level){
+        if (n==null) return 0;
+        if (n.left==null && n.right==null && (level%2!=0)){
+            return level;
+        }
+        return Math.max(deepestOddLevelNode(n.left,level+1),deepestOddLevelNode(n.right, level+1));
+    }
+
+    public int deepestLeftLevelNode(Node n ,int level, boolean isLeft){
+        if (n==null) return 0;
+        if (n.left==null && n.right==null && isLeft){
+            return level;
+        }
+        return Math.max(deepestLeftLevelNode(n.left,level+1,true),deepestLeftLevelNode(n.right, level+1,false));
+    }
 
 }
 

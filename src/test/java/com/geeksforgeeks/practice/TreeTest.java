@@ -45,6 +45,7 @@ public class TreeTest {
         node.left.left.left = new Node(18);
         node.left.left.right = new Node(14);
         node.left.left.right.left = new Node(11);
+        node.left.left.right.left.right = new Node(12);
         return node;
     }
 
@@ -82,7 +83,9 @@ public class TreeTest {
     @Test
     public void height() throws Exception {
         System.out.println("height of tree withoutRecursion");
-        System.out.println(tree.height(bstTree));
+        System.out.println(tree.height(sTree));
+        System.out.println(tree.deepestOddLevelNode(sTree,1));
+        System.out.println(tree.deepestLeftLevelNode(sTree,1,true));
     }
 
     @Test
@@ -160,7 +163,8 @@ public class TreeTest {
         temp.right = new Node(3);
         temp.left.left = new Node(6);
         temp.left.right = new Node(3);
-        temp.right.right = new Node(3);
+        temp.right.left = new Node(3);
+        temp.right.left.left = new Node(3);
         return temp;
     }
 
@@ -172,59 +176,22 @@ public class TreeTest {
 
     }
 
-    @Test
-    public void hashcode() throws Exception {
-        Object a = new Object();
-        Object b = new Object();
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(a.hashCode());
-        System.out.println(b.hashCode());
-    }
-
 
     @Test
-    public void testing() throws Exception {
-        HashSet<Integer> set = new HashSet<>();
-        System.out.println(set.add(4));
-        System.out.println(set.add(5));
-        System.out.println(set.add(5));
-        
-
+    public void ancestor() throws Exception {
+            tree.ancestort(sTree,14," ");
     }
 
     @Test
-    public void exception()  {
-         int a = 0;
-         int b = 10;
-        System.out.println(b/a);
-    }
-
-    String b;
-    String c;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        TreeTest treeTest = (TreeTest) o;
-
-        if (b != null ? !b.equals(treeTest.b) : treeTest.b != null) return false;
-        return c != null ? c.equals(treeTest.c) : treeTest.c == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = b != null ? b.hashCode() : 0;
-        result = 31 * result + (c != null ? c.hashCode() : 0);
-        return result;
+    public void checkCompleteBinaryTree() throws Exception {
+        Node t = getTree();
+        tree.checkCompleteBinaryTree(t);
     }
 
     @Test
-    public void name() throws Exception {
-       b="c";
-       c="a";
-        System.out.println(hashCode());
+    public void possibleInterpretations() throws Exception {
+        int[] arr= {9,1,8,4,3,8,2,7};
+        tree.possibleInterpretations(arr,0);
+
     }
 }
