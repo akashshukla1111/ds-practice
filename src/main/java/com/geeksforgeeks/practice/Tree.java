@@ -325,6 +325,7 @@ public class Tree {
         return 0;
     }
 
+    // TODO : need to complete this question
     public int hightBal(Node n) {
         if (n == null)
             return 0;
@@ -334,7 +335,6 @@ public class Tree {
             return 1 + Math.max(l, r);
         else
             return 0;
-
 
     }
 

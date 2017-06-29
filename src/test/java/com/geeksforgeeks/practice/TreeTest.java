@@ -19,6 +19,7 @@ import static javax.script.ScriptEngine.FILENAME;
  * Created by akasshukla on 5/22/17.
  */
 public class TreeTest {
+
     @Test
     public void printBoundary() throws Exception {
         tree.printBoundary(getTree());
@@ -84,9 +85,9 @@ public class TreeTest {
     public void height() throws Exception {
         System.out.println("height of tree withoutRecursion");
         System.out.println(tree.height(sTree));
-        System.out.println(tree.deepestOddLevelNode(sTree,1));
-        System.out.println(tree.deepestLeftLevelNode(sTree,1,true));
+
     }
+
 
     @Test
     public void levelOrderWithOutRecursion() throws Exception {
@@ -133,7 +134,7 @@ public class TreeTest {
 
     @Test
     public void sumFromRootToLeaf() throws Exception {
-//        Node tempToLeafSum(bstTree,0,34);
+
     }
 
     @Test
@@ -168,6 +169,12 @@ public class TreeTest {
         return temp;
     }
 
+    // TODO : need to verify this question
+    @Test
+    public void printLeft() throws Exception {
+
+    }
+
     @Test
     public void verticalSum() throws Exception {
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -176,9 +183,13 @@ public class TreeTest {
 
     }
 
-
     @Test
     public void ancestor() throws Exception {
+        tree.ancestor(sTree,14);
+    }
+
+    @Test
+    public void ancestort() throws Exception {
             tree.ancestort(sTree,14," ");
     }
 
@@ -193,5 +204,16 @@ public class TreeTest {
         int[] arr= {9,1,8,4,3,8,2,7};
         tree.possibleInterpretations(arr,0);
 
+    }
+
+    @Test
+    public void deepestOddLevelNode() throws Exception {
+        System.out.println(tree.deepestOddLevelNode(sTree,1));
+
+    }
+
+    @Test
+    public void deepestLeftLevelNode() throws Exception {
+        System.out.println(tree.deepestLeftLevelNode(sTree,1,true));
     }
 }
