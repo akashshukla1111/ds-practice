@@ -1,19 +1,9 @@
 package com.geeksforgeeks.practice;
 
-import com.geeksforgeeks.practice.Tree;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-
-import static javax.script.ScriptEngine.FILENAME;
 
 /**
  * Created by akasshukla on 5/22/17.
@@ -215,5 +205,40 @@ public class TreeTest {
     @Test
     public void deepestLeftLevelNode() throws Exception {
         System.out.println(tree.deepestLeftLevelNode(sTree,1,true));
+    }
+
+    @Test
+    public void lowestCommonAncestor() throws Exception {
+        System.out.println(tree.lowestCommonAncestorWithDistanceBtwNodes(sTree,18,12,0).data);
+    }
+
+    @Test
+    public void topTreeView() throws Exception {
+
+        Node node = new Node(2);
+        node.left = new Node(4);
+        node.right = new Node(5);
+        node.left.right = new Node(8);
+        node.left.right.right = new Node(1);
+        node.left.right.right.right = new Node(3);
+
+
+
+        tree.topView(node,0,0);
+        System.out.println(tree.getDisMap());
+    }
+
+    @Test
+    public void sumOfAllLeftTreeNodes() throws Exception {
+
+        Node node = new Node(1);
+        node.left = new Node(2);
+        node.right = new Node(3);
+        node.left.left = new Node(4);
+        node.left.right = new Node(5);
+        node.right.right = new Node(6);
+
+        tree.sumOfAllLeftTreeNodes(node,true);
+        tree.toPrint(node);
     }
 }

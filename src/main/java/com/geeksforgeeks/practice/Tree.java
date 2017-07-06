@@ -1,9 +1,7 @@
 package com.geeksforgeeks.practice;
 
-import java.util.HashMap;
+import java.util.*;
 import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
 
 /**
  * Created by akasshukla on 5/20/17.
@@ -487,6 +485,58 @@ public class Tree {
         return Math.max(deepestLeftLevelNode(n.left,level+1,true),deepestLeftLevelNode(n.right, level+1,false));
     }
 
+    int dis = 0;
+    public Node lowestCommonAncestorWithDistanceBtwNodes(Node n , int n1, int n2,int cnt){
+        if (n==null) return null;
+
+        if (n.data==n1 || n.data==n2){
+            dis = dis + cnt;
+            return n;
+        }
+        Node left = lowestCommonAncestorWithDistanceBtwNodes(n.left,n1,n2,cnt+1);
+        Node right = lowestCommonAncestorWithDistanceBtwNodes(n.right,n1,n2, cnt+1);
+        if (left!=null && right!=null){
+            dis = dis-2*cnt;
+            System.out.println(dis);
+            return n;
+        }
+        return left!=null ? left: right;
+    }
+
+    HashMap<Integer,Node> map = new HashMap<>();
+    Map<Integer, Node> disMap = new TreeMap<Integer,Node>(map);
+    HashMap<Node,Integer> hightMap = new HashMap<>();
+    public void topView(Node n , int dis,int cnt){
+        if (n==null) return;
+        hightMap.put(n,cnt);
+        if (disMap.get(dis)!=null){
+//            Note if you change this condition from greater to lesser then bottom view of binary tree will be print
+            if (hightMap.get(disMap.get(dis))>cnt){
+//                update the map
+                disMap.put(dis,n);
+            }
+        }else {
+            disMap.put(dis,n);
+        }
+        topView(n.left,dis-1,cnt+1);
+        topView(n.right,dis+1,cnt+1);
+    }
+    public Map getDisMap(){
+        return disMap;
+    }
+
+    public int sumOfAllLeftTreeNodes(Node n, boolean isLeft){
+
+        if (n==null) return 0;
+        int left =sumOfAllLeftTreeNodes(n.left,true);
+        int right=sumOfAllLeftTreeNodes(n.right,false);
+        int res=left+right+n.data;
+        if (isLeft){
+            n.data=n.data+left;
+        }
+        return res;
+    }
+
 }
 
 
@@ -499,6 +549,11 @@ class Node {
         this.data = data;
         this.left = null;
         this.right = null;
+    }
+
+    @Override
+    public String toString() {
+        return ""+data;
     }
 }
 
