@@ -1,7 +1,10 @@
 package com.geeksforgeeks.practice;
 
+import com.geeksforgeeks.practice.tree.Node;
+
 import java.util.*;
 import java.util.LinkedList;
+
 
 /**
  * Created by akasshukla on 5/20/17.
@@ -13,12 +16,12 @@ public class Tree {
     private boolean right;
     private boolean left;
 
-    public void toPrint(Node n) {
+    public static void  toPrint(Node n) {
         if (n == null)
             return;
+        toPrint(n.left);
         System.out.print(n.data);
         System.out.print(" ");
-        toPrint(n.left);
         toPrint(n.right);
     }
 
@@ -486,7 +489,8 @@ public class Tree {
     }
 
     int dis = 0;
-    public Node lowestCommonAncestorWithDistanceBtwNodes(Node n , int n1, int n2,int cnt){
+    public Node lowestCommonAncestorWithDistanceBtwNodes(
+            Node n , int n1, int n2,int cnt){
         if (n==null) return null;
 
         if (n.data==n1 || n.data==n2){
@@ -503,8 +507,8 @@ public class Tree {
         return left!=null ? left: right;
     }
 
-    HashMap<Integer,Node> map = new HashMap<>();
-    Map<Integer, Node> disMap = new TreeMap<Integer,Node>(map);
+    HashMap<Integer, Node> map = new HashMap<>();
+    Map<Integer, Node> disMap = new TreeMap<Integer, Node>(map);
     HashMap<Node,Integer> hightMap = new HashMap<>();
     public void topView(Node n , int dis,int cnt){
         if (n==null) return;
@@ -539,21 +543,4 @@ public class Tree {
 
 }
 
-
-class Node {
-    int data;
-    Node left;
-    Node right;
-
-    public Node(int data) {
-        this.data = data;
-        this.left = null;
-        this.right = null;
-    }
-
-    @Override
-    public String toString() {
-        return ""+data;
-    }
-}
 

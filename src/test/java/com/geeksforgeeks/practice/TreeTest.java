@@ -1,5 +1,6 @@
 package com.geeksforgeeks.practice;
 
+import com.geeksforgeeks.practice.tree.Node;
 import org.junit.Before;
 import org.junit.Test;
 
