@@ -3,9 +3,8 @@ package com.geeksforgeeks.practice;
 import com.geeksforgeeks.practice.tree.Node;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by akasshukla on 7/7/17.
@@ -17,13 +16,10 @@ public class BinarySearchTreeTest {
 	@Before
 	public void setUp(){
 		bst=new BinarySearchTree();
-		bst.inseart(20);
-		bst.inseart(2);
-		bst.inseart(34);
-		bst.inseart(12);
-		bst.inseart(45);
-		bst.inseart(7);
-		bst.inseart(5);
+		int[] vals= {20,2,34,12,45,7,5};
+		for (int val:vals) {
+			bst.inseart(val);
+		}
 	}
 	@Test
 	public void inseartTest() throws Exception {
@@ -43,4 +39,23 @@ public class BinarySearchTreeTest {
 		Assert.assertTrue(bst.isBST(bst.getRootNode()));
 	}
 
+	@Test
+	public void kthSmallest() throws Exception {
+		Node rootNode = bst.getRootNode();
+		bst.kthSmallestTemp(rootNode,1);
+		System.out.println(bst.kthSmallestElement(rootNode,1));
+		System.out.println(bst.getKthSmallestElement().data);
+	}
+
+	@Test
+	public void removeKeys() throws Exception {
+		Node removeKeys = bst.removeKeys(bst.getRootNode(), 12, 55);
+		Tree.toPrint(removeKeys);
+	}
+
+	@Test @Ignore
+	public void kthLargestElement() throws Exception {
+		Node rootNode = bst.getRootNode();
+		System.out.println(bst.kthLargestElement(rootNode,6));
+	}
 }

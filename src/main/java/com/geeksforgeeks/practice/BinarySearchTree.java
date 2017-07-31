@@ -66,4 +66,88 @@ public class BinarySearchTree {
 		return left&&right;
 	}
 
+	Node nd=null;
+	public int kthSmallestTemp(Node n,int k){
+		if (n==null) return k;
+		k= kthSmallestTemp(n.left,k);
+		if (k>0){
+		nd=n;
+		}
+		k=k-1;
+		k= kthSmallestTemp(n.right,k);
+		if (k>0){
+		 	nd=n;
+		}
+		return k;
+	}
+	public Node getKthSmallestElement(){
+		return nd;
+	}
+
+	private int k=0;
+	public Integer kthSmallestElement(Node n,int k){
+		this.k =k;
+		Node node = kthSmallestE(n);
+		return node!=null ? node.data : null;
+	}
+
+	private Node kthSmallestE(Node n){
+		Node nodeVal=null;
+		if (n.left==null) return n;
+		if (this.k > 0){
+			nodeVal=kthSmallestE(n.left);
+
+		}
+		this.k = this.k-1;
+		if (this.k > 0){
+			nodeVal=kthSmallestE(n.right);
+		}
+		return nodeVal;
+	}
+
+	public Integer kthLargestElement(Node n,int k){
+		this.k =k;
+		Node node = kthLargestE(n);
+		return node!=null ? node.data : null;
+	}
+
+	private Node kthLargestE(Node n){
+		Node nodeVal=null;
+		if (n!=null && n.right==null) return n;
+
+		if (this.k > 0){
+			nodeVal=kthLargestE(n.right);
+
+		}
+		this.k = this.k-1;
+		if (this.k > 0){
+			nodeVal=kthLargestE(n.left);
+		}
+		return nodeVal;
+	}
+
+	public Node removeKeys(Node n , int k1, int k2){
+		if (n==null) return n;
+
+		Node ls=removeKeys(n.left,k1,k2);
+		Node rs=removeKeys(n.right,k1,k2);
+		if (k1<n.data && n.data<k2){
+			n.left=ls;
+			n.right=rs;
+			return n;
+		}
+		if (k1>=n.data) return rs;
+		return ls;
+	}
+
+	public void findPairInBST(Node l, Node r , int val){
+		if (l==null || r==null){
+			return;
+		}
+
+		findPairInBST(l.left,r.right,val);
+		
+	}
+
+
 }
