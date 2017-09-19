@@ -36,6 +36,17 @@ public class LinkedListTest {
         list.show();
     }
 
+    @Test
+    public void test() throws Exception {
+        int a = 5;
+        int b =5;
+        if (a>b){
+            System.out.println("first");
+        }else if (b>a){
+            System.out.println("2nd");
+        }else {
+            System.out.println("last");
+        }
 
-
+    }
 }
