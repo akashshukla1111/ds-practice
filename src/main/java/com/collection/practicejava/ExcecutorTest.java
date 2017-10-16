@@ -40,7 +40,7 @@ public class ExcecutorTest {
 
     public void executorServ() throws ExecutionException, InterruptedException {
 
-        RunnableFuture<String> target = new FutureTask<>(() -> "Callable test");
+        RunnableFuture<String> target = new FutureTask<>(() -> "Callable findTheDigitAfterDecimal");
         Thread thread = new Thread(target);
         thread.start();
         System.out.println(target.get());

@@ -1,5 +1,6 @@
-package com.interviewbit.practice;
+package com.hackerrank.paper;
 
+import com.hackerrank.paper.LargestNum;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class LargestNumTest {
     public void largestNumber() throws Exception {
             LargestNum n =new LargestNum();
             assertEquals("886",n.largestNumber(new ArrayList<>(Arrays.asList(86,8))));
+            assertEquals("6054854654",n.largestNumber(new ArrayList<>(Arrays.asList(54, 546, 548, 60))));
     }
 
 }

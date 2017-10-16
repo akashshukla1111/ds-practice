@@ -49,10 +49,9 @@ public class BuilderPatter {
         private String address;
         private String emailId;
 
-
-        public BuilderFactory withId(int id){
+        public BuilderFactory(int id,String email){
             this.id=id;
-            return this;
+            this.emailId=email;
         }
 
         public BuilderFactory withName(String name){
