@@ -2,7 +2,7 @@ package com.collection.practicejava.concurrencyinjava;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import java.beans.Customizer;
 
 public class EventSourceTest {
 	@Test
@@ -14,5 +14,16 @@ public class EventSourceTest {
 		while(true) {
 			new ThisEscape(es);
 		}
+	}
+
+	@Test
+	public void name() throws Exception {
+		System.out.println(Customizer.class.getClassLoader());
+		long mb = 1024*1024;
+		Runtime r = Runtime.getRuntime();
+		System.out.println(System.out);
+		System.out.println(r.maxMemory()/mb);
+		System.out.println(r.freeMemory()/mb);
+		System.out.println(r.totalMemory()/mb);
 	}
 }
