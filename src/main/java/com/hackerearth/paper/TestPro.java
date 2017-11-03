@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Set;
 
 public class TestPro {
 
@@ -26,5 +28,8 @@ public class TestPro {
 			}
 		}
 		System.out.println(sb);
+
+		HashMap map = new HashMap();
+		Set set = map.entrySet();
 	}
 }

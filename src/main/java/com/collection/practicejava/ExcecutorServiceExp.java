@@ -1,23 +1,15 @@
 package com.collection.practicejava;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
-import java.util.concurrent.RunnableFuture;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
+import java.util.concurrent.*;
 
 /**
  * Created by akasshukla on 6/4/16.
  */
-public class ExcecutorTest {
+public class ExcecutorServiceExp {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService executor = Executors.newFixedThreadPool(5);
 
-        ExcecutorTest tet = new ExcecutorTest();
+        ExcecutorServiceExp tet = new ExcecutorServiceExp();
         tet.executorServ();
         Future<String> tast = executor.submit(() -> {
             Thread.sleep(1000);
@@ -33,9 +25,16 @@ public class ExcecutorTest {
         System.out.println(tast2.get());
 
         executor.shutdown();
-        
-        
 
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        //Runnable
+        Future<?> submit = executorService.submit(
+                () -> System.out.println("this method run() is only did the job no, return"));
+        System.out.println("runnable checking :"+ submit.get());
+
+        //Callable
+        Future<String> submit1 = executorService.submit(() -> "this method do the job and return the value call() ");
+        System.out.println(submit1.get());
     }
 
     public void executorServ() throws ExecutionException, InterruptedException {
@@ -44,8 +43,5 @@ public class ExcecutorTest {
         Thread thread = new Thread(target);
         thread.start();
         System.out.println(target.get());
-
-
-
     }
 }
