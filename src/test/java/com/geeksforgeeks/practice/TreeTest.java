@@ -210,7 +210,8 @@ public class TreeTest {
 
     @Test
     public void lowestCommonAncestor() throws Exception {
-        System.out.println(tree.lowestCommonAncestorWithDistanceBtwNodes(sTree,18,12,0).data);
+        System.out.println(tree.lowestCommonAncestorWithDistanceBtwNodes(sTree,4,12,0).data);
+        System.out.println(tree.getDis());
     }
 
     @Test

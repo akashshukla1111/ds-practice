@@ -493,18 +493,24 @@ public class Tree {
             Node n , int n1, int n2,int cnt){
         if (n==null) return null;
 
+
+        Node left = lowestCommonAncestorWithDistanceBtwNodes(n.left,n1,n2,cnt+1);
+        Node right = lowestCommonAncestorWithDistanceBtwNodes(n.right,n1,n2, cnt+1);
+
         if (n.data==n1 || n.data==n2){
             dis = dis + cnt;
             return n;
         }
-        Node left = lowestCommonAncestorWithDistanceBtwNodes(n.left,n1,n2,cnt+1);
-        Node right = lowestCommonAncestorWithDistanceBtwNodes(n.right,n1,n2, cnt+1);
         if (left!=null && right!=null){
             dis = dis-2*cnt;
-            System.out.println(dis);
+//            System.out.println(dis);
             return n;
         }
         return left!=null ? left: right;
+    }
+
+    public int getDis() {
+        return dis;
     }
 
     HashMap<Integer, Node> map = new HashMap<>();
