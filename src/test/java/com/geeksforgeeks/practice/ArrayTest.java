@@ -49,4 +49,35 @@ public class ArrayTest {
 		Integer[] actual = {6, 7, 8, 9, 10, 11, 12, 13, 14, 1,2,3,4,5};
 		Assert.assertArrayEquals(rotated, actual);
 	}
+
+	@Test
+	public void rotatedArraySearch() throws Exception {
+		Integer[] actual = {6, 7, 8, 9, 10, 11, 12, 13, 14, 1,2,3,4,5};
+		for (int i=1;i<19;i++){
+		boolean ans = a.rotatedArraySearch(actual, 0, arr.length - 1, i);
+		System.out.println(ans);
+		}
+	}
+
+	@Test
+	public void arrangeNumber() throws Exception {
+		Integer[] arr = {4,6,2,-2,-7,-13,16,19,3};
+		System.out.println(Arrays.toString(a.arrangeNumber(arr)));
+	}
+
+	@Test
+	public void arragneMaxAndMin() throws Exception {
+		Integer[] input={1,2,3,4,5,6,7,8,9};
+		Integer[] actual={9, 1 ,8, 2, 7, 3, 6, 4, 5};
+		Integer[] expected = a.rearrangeMaxandMin(input);
+		System.out.println(Arrays.toString(expected));
+		Assert.assertArrayEquals(expected,actual);
+
+	}
+
+	@Test
+	public void segregateZeroOneTest() throws Exception {
+		Integer[] arr= {1,1,1,1,0,1,1,1,1,1};
+		System.out.println(Arrays.toString(a.segregateZeroOne(arr)));
+	}
 }
