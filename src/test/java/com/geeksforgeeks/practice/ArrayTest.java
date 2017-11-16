@@ -80,4 +80,11 @@ public class ArrayTest {
 		Integer[] arr= {1,1,1,1,0,1,1,1,1,1};
 		System.out.println(Arrays.toString(a.segregateZeroOne(arr)));
 	}
+
+	@Test
+	public void segregateEvenOdd() throws Exception {
+		Integer[] arr={9, 1 ,8, 2, 7, 3, 6, 4, 5};
+		Integer[] expected=a.segregateEvenOdd(arr);
+		System.out.println(Arrays.toString(expected));
+	}
 }

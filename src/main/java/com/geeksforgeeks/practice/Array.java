@@ -188,5 +188,17 @@ public class Array {
 		}
 		return arr;
 	}
+
+	public Integer[] segregateEvenOdd(Integer[] arr){
+		int l = arr.length;
+		int pivot=-1;
+		for (int i=0;i<l;i++){
+			if (arr[i]%2==0){
+				pivot++;
+				swap(arr,pivot,i);
+			}
+		}
+		return arr;
+	}
 	
 }
