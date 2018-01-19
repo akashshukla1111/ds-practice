@@ -98,6 +98,7 @@ public class Array {
 
 	public boolean rotatedArraySearch(Integer[] arr, int si , int li,int key) {
 		// 1 2 3 4 5 7 8
+//		 3 4 5 7 8 1 2
 		int mid=(si+li)/2;
 		if (si>li){
 			return false;
@@ -200,5 +201,23 @@ public class Array {
 		}
 		return arr;
 	}
-	
+
+	public void findDuplicate(int[] nums){
+		//1,2,3,4,5,6,3
+		int xor=nums[0]^nums[1];
+		for (int i=2;i<nums.length;i++){
+			xor=xor^nums[i]^(i-1);
+		}
+		System.out.println(xor);
+	}
+	 public void setBitCounts(int n){
+		int count=0;
+		while (n>0){
+			if((n&1)!=0){
+				count++;
+			}
+			n=n>>1;
+		}
+		 System.out.println(count);
+	 }
 }

@@ -52,11 +52,10 @@ public class ArrayTest {
 
 	@Test
 	public void rotatedArraySearch() throws Exception {
-		Integer[] actual = {6, 7, 8, 9, 10, 11, 12, 13, 14, 1,2,3,4,5};
-		for (int i=1;i<19;i++){
-		boolean ans = a.rotatedArraySearch(actual, 0, arr.length - 1, i);
+		Integer[] actual = {3, 4, 5, 7, 8, 1,2};
+		boolean ans = a.rotatedArraySearch(actual, 0, actual.length - 1, 8);
 		System.out.println(ans);
-		}
+
 	}
 
 	@Test
@@ -86,5 +85,12 @@ public class ArrayTest {
 		Integer[] arr={9, 1 ,8, 2, 7, 3, 6, 4, 5};
 		Integer[] expected=a.segregateEvenOdd(arr);
 		System.out.println(Arrays.toString(expected));
+	}
+
+	@Test
+	public void findDuplicate() throws Exception {
+		int[] r={1,2,3,4,5,6,2,5};
+		a.setBitCounts(11);
+
 	}
 }
