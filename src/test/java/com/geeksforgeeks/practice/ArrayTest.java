@@ -45,8 +45,9 @@ public class ArrayTest {
 
 	@Test
 	public void blackSwapAlgo() throws Exception {
-		Integer[] rotated = a.blackSwapRotate(arr,0,arr.length-1,5);
-		Integer[] actual = {6, 7, 8, 9, 10, 11, 12, 13, 14, 1,2,3,4,5};
+		 int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,14};
+		int[] rotated = a.blackSwapRotate(arr,0,arr.length-1,5);
+		int[] actual = {6, 7, 8, 9, 10, 11, 12, 13, 14, 1,2,3,4,5};
 		Assert.assertArrayEquals(rotated, actual);
 	}
 
@@ -60,15 +61,15 @@ public class ArrayTest {
 
 	@Test
 	public void arrangeNumber() throws Exception {
-		Integer[] arr = {4,6,2,-2,-7,-13,16,19,3};
+		int[] arr = {4,6,2,-2,-7,-13,16,19,3};
 		System.out.println(Arrays.toString(a.arrangeNumber(arr)));
 	}
 
 	@Test
 	public void arragneMaxAndMin() throws Exception {
-		Integer[] input={1,2,3,4,5,6,7,8,9};
-		Integer[] actual={9, 1 ,8, 2, 7, 3, 6, 4, 5};
-		Integer[] expected = a.rearrangeMaxandMin(input);
+		int[] input={1,2,3,4,5,6,7,8,9};
+		int[] actual={9, 1 ,8, 3, 7, 5, 6, 4, 2};
+		int[] expected = a.rearrangeMaxandMin(input);
 		System.out.println(Arrays.toString(expected));
 		Assert.assertArrayEquals(expected,actual);
 
@@ -82,15 +83,41 @@ public class ArrayTest {
 
 	@Test
 	public void segregateEvenOdd() throws Exception {
-		Integer[] arr={9, 1 ,8, 2, 7, 3, 6, 4, 5};
-		Integer[] expected=a.segregateEvenOdd(arr);
+		int[] arr={9, 1 ,8, 2, 7, 3, 6, 4, 5};
+		int[] expected=a.segregateEvenOdd(arr);
 		System.out.println(Arrays.toString(expected));
 	}
 
 	@Test
 	public void findDuplicate() throws Exception {
-		int[] r={1,2,3,4,5,6,2,5};
-		a.setBitCounts(11);
+		a.setBitCounts(3);
+		a.setBitCountsBetter(1);
 
+	}
+
+	@Test
+	public void findDuplicates() {
+		int[] input={1,2,3,3,4,5,6,2,4,4,6,2};
+		a.findDuplicates(input);
+	}
+
+	@Test
+	public void findSmallestPositiveMissingNum() {
+		int[] input= {6,1,3,5};
+		int missingNum = a.findSmallestPositiveMissingNum(input);
+		System.out.println(missingNum);
+	}
+
+	@Test
+	public void findMaximumRepeatingElement() {
+		int[] input=  {1,4, 4, 4, 0, 2, 0, 2, 3, 4, 0, 9, 2, 3};
+		int maximumRepeatingElement = a.findMaximumRepeatingElement(input);
+		System.out.println(maximumRepeatingElement);
+	}
+
+	@Test
+	public void countFrequencies() {
+		int arr[] ={2, 3, 3, 2, 5};
+		a.countFrequencies(arr);
 	}
 }
