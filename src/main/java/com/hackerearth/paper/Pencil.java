@@ -6,9 +6,11 @@ public class Pencil {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the no. of input");
 		int T = sc.nextInt();
 		int arr[];
 		for (int i = 0; i < T; i++) {
+			System.out.println("enter the "+i +1 +" value");
 			int L = sc.nextInt();
 			arr = new int[L];
 			for (int j = 0; j < L; j++) {
