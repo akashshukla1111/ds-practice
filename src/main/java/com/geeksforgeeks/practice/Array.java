@@ -322,4 +322,46 @@ public class Array {
         }
     }
 
+
+    public  static void findDuplicatesXor(int[] arr){
+        int l = arr.length;
+        int xor=arr[0];
+        for (int i=1;i<l;i++){
+            xor^=arr[i];
+        }
+        for (int i=1;i<=l-2;i++){
+            xor^=i;
+        }
+
+        int x=0;int y=0;
+        int set_right_bit;
+
+        set_right_bit= (xor &  ~(xor-1));
+
+        for (int i=0;i<l;i++){
+            if ((set_right_bit & arr[i]) != 0){
+                x^=arr[i];
+            }else{
+                y^=arr[i];
+            }
+        }
+
+        for (int i=1;i<=l-2;i++){
+            if ((set_right_bit & i) != 0){
+                x^=i;
+            }else{
+                y^=i;
+            }
+        }
+
+        System.out.println("x : " + x);
+        System.out.println("y : " + y);
+
+    }
+
+    public static void main(String[] args) {
+       int[] arr= {4, 2, 4, 5, 2, 3, 1};
+        findDuplicatesXor(arr);
+    }
+
 }
