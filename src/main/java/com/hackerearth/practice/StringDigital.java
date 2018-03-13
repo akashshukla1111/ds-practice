@@ -38,6 +38,8 @@ class StringDigital {
 			}
 		}
 		System.out.println(sum);
-		System.out.println(System.currentTimeMillis() - start);
+		//System.out.println(System.currentTimeMillis() - start);
 	}
+
+
 }
