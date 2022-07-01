@@ -1,3 +1,3 @@
-package com.practicejava.concurrencyinjava;
+package com.practice.mics.concurrencyinjava;
 
 public class Event { }

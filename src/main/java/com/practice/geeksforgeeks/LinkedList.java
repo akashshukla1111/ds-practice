@@ -1,6 +1,6 @@
-package com.geeksforgeeks.practice;
+package com.practice.geeksforgeeks;
 
-import com.geeksforgeeks.practice.linkedlist.Node;
+import com.practice.geeksforgeeks.linkedlist.Node;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;

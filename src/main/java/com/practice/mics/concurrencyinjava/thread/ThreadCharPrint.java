@@ -1,6 +1,4 @@
-package com.practicejava.thread;
-
-import java.util.Scanner;
+package com.practice.mics.concurrencyinjava.thread;
 
 public class ThreadCharPrint {
 	char[] arr = { 'a', 'b', 'c', 'd' };

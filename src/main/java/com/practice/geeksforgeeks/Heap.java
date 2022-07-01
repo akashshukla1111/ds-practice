@@ -1,6 +1,4 @@
-package com.geeksforgeeks.practice;
-
-import java.util.Arrays;
+package com.practice.geeksforgeeks;
 
 public class Heap {
 

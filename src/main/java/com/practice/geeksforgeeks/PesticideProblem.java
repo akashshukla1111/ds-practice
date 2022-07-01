@@ -1,4 +1,4 @@
-package com.geeksforgeeks.practice;
+package com.practice.geeksforgeeks;
 
 import java.util.Scanner;
 import java.util.Stack;

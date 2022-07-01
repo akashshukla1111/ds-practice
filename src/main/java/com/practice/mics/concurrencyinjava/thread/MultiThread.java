@@ -1,4 +1,4 @@
-package com.practicejava.thread;
+package com.practice.mics.concurrencyinjava.thread;
 
 /**
  * Created by akasshukla on 5/17/17.

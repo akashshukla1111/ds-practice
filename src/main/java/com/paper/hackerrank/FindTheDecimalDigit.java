@@ -1,4 +1,4 @@
-package com.hackerrank.paper;
+package com.paper.hackerrank;
 
 public class FindTheDecimalDigit {
 

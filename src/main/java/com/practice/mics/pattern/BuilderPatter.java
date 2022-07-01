@@ -1,4 +1,4 @@
-package com.practicejava.pattern;
+package com.practice.mics.pattern;
 
 /**
  * Created by akasshukla on 5/29/17.

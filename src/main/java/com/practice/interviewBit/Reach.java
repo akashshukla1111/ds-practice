@@ -1,8 +1,6 @@
-package com.interviewbit.practice;
+package com.practice.interviewBit;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by ankit on 25/1/16.

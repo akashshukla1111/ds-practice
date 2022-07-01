@@ -1,4 +1,4 @@
-package com.practicejava.redmart;
+package com.paper.redmart;
 
 // this file contain core business logic for the code
 // it using one recursive function to calculate the cell value

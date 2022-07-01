@@ -1,4 +1,4 @@
-package com.practicejava.redmart;
+package com.paper.redmart;
 
 import java.io.*;
 import java.nio.charset.Charset;

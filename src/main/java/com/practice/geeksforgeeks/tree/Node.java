@@ -1,4 +1,4 @@
-package com.geeksforgeeks.practice.tree;
+package com.practice.geeksforgeeks.tree;
 
 /**
  * Created by akasshukla on 7/7/17.

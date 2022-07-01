@@ -1,4 +1,4 @@
-package com.geeksforgeeks.practice;
+package com.practice.geeksforgeeks;
 
 public class LargestSubArraySum {
 

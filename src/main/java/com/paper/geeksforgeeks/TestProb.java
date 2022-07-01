@@ -1,4 +1,4 @@
-package com.geeksforgeeks.paper;
+package com.paper.geeksforgeeks;
 
 /**
  * Created by akash on 18/02/16.

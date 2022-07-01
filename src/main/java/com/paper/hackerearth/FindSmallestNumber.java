@@ -1,11 +1,9 @@
-package com.hackerearth.paper;
+package com.paper.hackerearth;
 	
     /*
 		Created By : akasshukla
               Date : 11/14/17   11:27 PM
     */
-
-import java.util.Scanner;
 
 public class FindSmallestNumber {
 

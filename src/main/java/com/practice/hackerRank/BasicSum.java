@@ -1,4 +1,4 @@
-package com.hackerrank.practice;
+package com.practice.hackerRank;
 
 import java.util.Scanner;
 

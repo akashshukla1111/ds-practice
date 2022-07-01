@@ -1,4 +1,4 @@
-package com.hackerrank.practice;
+package com.practice.hackerRank;
 
 // Java program to print all permutations of a
 // given string.

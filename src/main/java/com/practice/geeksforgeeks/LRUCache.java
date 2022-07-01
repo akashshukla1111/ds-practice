@@ -1,4 +1,4 @@
-package com.geeksforgeeks.practice;
+package com.practice.geeksforgeeks;
 
 /**
  * Created by akash on 21/02/16.

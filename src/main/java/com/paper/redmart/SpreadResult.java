@@ -1,4 +1,4 @@
-package com.practicejava.redmart;
+package com.paper.redmart;
 
 public class SpreadResult {
 

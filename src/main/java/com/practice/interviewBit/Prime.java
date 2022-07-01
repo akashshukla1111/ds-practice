@@ -1,4 +1,4 @@
-package com.interviewbit.practice;
+package com.practice.interviewBit;
 
 /**
  * Created by akashshukla on 17/01/16.

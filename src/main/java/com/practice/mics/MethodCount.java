@@ -1,4 +1,4 @@
-package com.practicejava;
+package com.practice.mics;
 
 import java.lang.reflect.Method;
 

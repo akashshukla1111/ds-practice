@@ -1,4 +1,4 @@
-package com.hackerrank.practice;
+package com.practice.hackerRank;
 	
     /*
         Created By : akasshukla

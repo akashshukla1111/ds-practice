@@ -1,8 +1,8 @@
-package com.practicejava.redmart;
+package com.paper.redmart;
 
 import java.util.Objects;
 
-import static com.practicejava.redmart.SpreadsheetUtils.*;
+import static com.paper.redmart.SpreadsheetUtils.*;
 
 public class SpreadsheetHelper {
 

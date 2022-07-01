@@ -1,4 +1,4 @@
-package com.hackerearth.practice;
+package com.practice.hackerEarth;
 
 import java.math.BigInteger;
 import java.util.Scanner;

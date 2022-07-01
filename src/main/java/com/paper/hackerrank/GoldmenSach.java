@@ -1,4 +1,4 @@
-package com.hackerrank.paper;
+package com.paper.hackerrank;
 
 /**
  * Created by akash on 14/02/16.

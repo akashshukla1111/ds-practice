@@ -1,4 +1,4 @@
-package com.practicejava;
+package com.practice.mics;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

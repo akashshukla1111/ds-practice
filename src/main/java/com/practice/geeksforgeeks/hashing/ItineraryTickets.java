@@ -1,4 +1,4 @@
-package com.geeksforgeeks.practice.hashing;
+package com.practice.geeksforgeeks.hashing;
 
 import java.util.*;
 

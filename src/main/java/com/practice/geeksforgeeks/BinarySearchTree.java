@@ -1,6 +1,6 @@
-package com.geeksforgeeks.practice;
+package com.practice.geeksforgeeks;
 
-import com.geeksforgeeks.practice.tree.Node;
+import com.practice.geeksforgeeks.tree.Node;
 
 /**
  * Created by akasshukla on 7/7/17.

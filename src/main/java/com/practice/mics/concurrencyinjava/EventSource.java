@@ -1,4 +1,4 @@
-package com.practicejava.concurrencyinjava;
+package com.practice.mics.concurrencyinjava;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

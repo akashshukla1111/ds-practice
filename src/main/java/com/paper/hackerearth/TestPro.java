@@ -1,4 +1,4 @@
-package com.hackerearth.paper;
+package com.paper.hackerearth;
 
 import java.io.BufferedReader;
 import java.io.IOException;

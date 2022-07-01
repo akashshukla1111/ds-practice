@@ -1,4 +1,4 @@
-package com.practicejava;
+package com.practice.mics;
 
 /**
  * Created by akasshukla on 7/27/17.

@@ -1,4 +1,4 @@
-package com.hackerearth.paper;
+package com.paper.hackerearth;
 //package com.dataStructure;
 //
 //import java.util.Scanner;

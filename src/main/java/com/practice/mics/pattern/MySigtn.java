@@ -1,4 +1,4 @@
-package com.practicejava.pattern;
+package com.practice.mics.pattern;
 
 //singleton class with the use of static block 
 

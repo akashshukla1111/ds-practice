@@ -1,4 +1,4 @@
-package com.geeksforgeeks.practice.linkedlist;
+package com.practice.geeksforgeeks.linkedlist;
 
 /**
  * Created by akasshukla on 7/7/17.

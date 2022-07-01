@@ -1,7 +1,6 @@
-package com.geeksforgeeks.practice;
+package com.practice.geeksforgeeks;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Array {
     //rotate an array with d elements

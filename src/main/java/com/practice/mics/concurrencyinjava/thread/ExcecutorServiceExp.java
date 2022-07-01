@@ -1,4 +1,4 @@
-package com.practicejava.thread;
+package com.practice.mics.concurrencyinjava.thread;
 
 import java.util.concurrent.*;
 

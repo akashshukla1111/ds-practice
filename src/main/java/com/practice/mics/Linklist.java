@@ -1,6 +1,6 @@
 // code is written by ak
 
-package com.practicejava;
+package com.practice.mics;
 
 class Linklist {
 
