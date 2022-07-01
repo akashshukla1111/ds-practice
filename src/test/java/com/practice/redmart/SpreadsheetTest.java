@@ -2,9 +2,10 @@ package com.practice.redmart;
 
 import com.paper.redmart.SpreadResult;
 import com.paper.redmart.Spreadsheet;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 import java.io.BufferedReader;
 import java.io.StringReader;
@@ -15,7 +16,7 @@ public class SpreadsheetTest {
 	private StringReader stringReader;
 	private StringReader stringReaderCycle;
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		spreadsheet = new Spreadsheet();
 		stringReader = new StringReader(
@@ -32,7 +33,7 @@ public class SpreadsheetTest {
 		SpreadResult[][] expected = this.spreadsheet.spreadsheet(reader);
 		for (int i = 0; i < 2; i++) {
 			for (int j = 0; j < 3; j++) {
-				Assert.assertEquals(String.format("%.5f", expected[i][j].getAns()), actual[i][j]);
+				Assertions.assertEquals(String.format("%.5f", expected[i][j].getAns()), actual[i][j]);
 			}
 		}
 	}
@@ -44,7 +45,7 @@ public class SpreadsheetTest {
 		SpreadResult[][] expected = this.spreadsheet.spreadsheet(reader);
 		for (int i = 0; i < 2; i++) {
 			for (int j = 0; j < 3; j++) {
-				Assert.assertEquals(String.format("%.5f", expected[i][j].getAns()), actual[i][j]);
+				Assertions.assertEquals(String.format("%.5f", expected[i][j].getAns()), actual[i][j]);
 			}
 		}
 	}

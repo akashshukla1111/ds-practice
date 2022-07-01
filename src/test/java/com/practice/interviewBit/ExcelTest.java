@@ -1,8 +1,8 @@
 package com.practice.interviewBit;
 
-import com.practice.interviewBit.Excel;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * Created by akasshukla on 10/22/16.
@@ -12,6 +12,6 @@ public class ExcelTest {
     @Test
     public void titleToNumber() throws Exception {
             Excel a = new Excel();
-            Assert.assertEquals(731,a.titleToNumber("ABC"));
+            Assertions.assertEquals(731,a.titleToNumber("ABC"));
     }
 }

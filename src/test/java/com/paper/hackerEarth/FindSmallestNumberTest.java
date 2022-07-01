@@ -1,8 +1,10 @@
 package com.paper.hackerEarth;
 
 import com.paper.hackerearth.FindSmallestNumber;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FindSmallestNumberTest {
 
@@ -10,13 +12,13 @@ public class FindSmallestNumberTest {
 	@Test
 	public void findTheSmallestElement() throws Exception {
 		int expected = smallestNumber.findSmallest(12);
-		Assert.assertEquals(expected, 26);
+		assertEquals(expected, 26);
 	}
 
 	@Test
 	public void findTheSamllestWhenNoSmallest() throws Exception {
 		int expected =smallestNumber.findSmallest(99);
-		Assert.assertEquals(expected, -1);
+		assertEquals(expected, -1);
 	}
 
 

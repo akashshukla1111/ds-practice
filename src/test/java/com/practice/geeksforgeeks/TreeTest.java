@@ -1,8 +1,8 @@
 package com.practice.geeksforgeeks;
 
 import com.practice.geeksforgeeks.tree.Node;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 
@@ -19,7 +19,7 @@ public class TreeTest {
     Node bstTree;
     Node sTree;
     Tree tree;
-    @Before
+    @BeforeEach
     public void setUp(){
         sTree = createTree();
         tree= new Tree();

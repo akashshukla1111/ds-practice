@@ -1,7 +1,8 @@
 package com.practice;
 
 import com.practice.mics.AltTabSelection;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * Created by akasshukla on 7/31/17.

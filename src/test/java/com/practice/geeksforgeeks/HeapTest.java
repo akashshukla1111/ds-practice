@@ -1,7 +1,7 @@
 package com.practice.geeksforgeeks;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Arrays;
 
@@ -9,7 +9,7 @@ public class HeapTest {
 
 	Heap h;
 
-	@Before
+	@BeforeEach
 	public void setup(){
 		h = new Heap(5);
 		h.inseart(7);

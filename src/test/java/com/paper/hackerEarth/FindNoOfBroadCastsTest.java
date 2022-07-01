@@ -1,8 +1,8 @@
 package com.paper.hackerEarth;
 
 import com.paper.hackerearth.FindNoOfBroadCasts;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class FindNoOfBroadCastsTest {
 
@@ -12,6 +12,6 @@ public class FindNoOfBroadCastsTest {
 	@Test
 	public void noOfBroadCasts() throws Exception {
 		int noOflikes = casts.getNoOflikes(arr, 1, 4, 2);
-		Assert.assertEquals(noOflikes, 2);
+		Assertions.assertEquals(noOflikes, 2);
 	}
 }

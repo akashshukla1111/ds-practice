@@ -3,7 +3,7 @@ package com.practice.mics.concurrencyinjava;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-class EventSource extends Thread {
+public class EventSource extends Thread {
    private final BlockingQueue<EventListener> listeners =
 		   new LinkedBlockingQueue<EventListener>();
 

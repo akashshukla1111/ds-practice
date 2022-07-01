@@ -2,13 +2,12 @@ package com.mics.concurrencyinjava;
 
 import com.practice.mics.concurrencyinjava.EventSource;
 import com.practice.mics.concurrencyinjava.ThisEscape;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 import java.beans.Customizer;
 
 public class EventSourceTest {
-	@Ignore @Test
+
+//	@Test
 	public void eventTest() throws Exception {
 		EventSource es = new EventSource();
 		es.start();

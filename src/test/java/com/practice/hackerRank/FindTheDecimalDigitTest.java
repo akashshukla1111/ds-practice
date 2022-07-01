@@ -1,8 +1,10 @@
 package com.practice.hackerRank;
 
 import com.paper.hackerrank.FindTheDecimalDigit;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FindTheDecimalDigitTest {
 	@Test
@@ -21,9 +23,9 @@ public class FindTheDecimalDigitTest {
 		 */
 
 		FindTheDecimalDigit findTheDecimalDigit=new FindTheDecimalDigit();
-		Assert.assertEquals("inf" ,findTheDecimalDigit.findTheDigitAfterDecimal(36,7));
-		Assert.assertEquals("875" ,findTheDecimalDigit.findTheDigitAfterDecimal(95,8));
-		Assert.assertEquals("0" ,findTheDecimalDigit.findTheDigitAfterDecimal(66,6));
+		assertEquals("inf" ,findTheDecimalDigit.findTheDigitAfterDecimal(36,7));
+		Assertions.assertEquals("875" ,findTheDecimalDigit.findTheDigitAfterDecimal(95,8));
+		Assertions.assertEquals("0" ,findTheDecimalDigit.findTheDigitAfterDecimal(66,6));
 
 	}
 

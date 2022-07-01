@@ -1,7 +1,8 @@
 package com.practice;
 
 import com.practice.mics.pattern.BuilderPatter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * Created by akasshukla on 5/29/17.

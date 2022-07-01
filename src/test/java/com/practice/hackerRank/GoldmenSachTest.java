@@ -1,8 +1,8 @@
 package com.practice.hackerRank;
 
 import com.paper.hackerrank.GoldmenSach;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Created by akasshukla on 10/22/16.
@@ -12,7 +12,7 @@ public class GoldmenSachTest {
     @Test
     public void path() throws Exception {
         GoldmenSach d = new GoldmenSach();
-         Assert.assertEquals(6,d.path(3, 3));
+         Assertions.assertEquals(6,d.path(3, 3));
     }
 
 }

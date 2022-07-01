@@ -1,6 +1,6 @@
 package com.practice.geeksforgeeks;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Created by akasshukla on 3/27/17.

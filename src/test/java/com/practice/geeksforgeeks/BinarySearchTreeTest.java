@@ -1,10 +1,13 @@
 package com.practice.geeksforgeeks;
 
 import com.practice.geeksforgeeks.tree.Node;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import jdk.nashorn.internal.ir.annotations.Ignore;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * Created by akasshukla on 7/7/17.
@@ -13,7 +16,7 @@ public class BinarySearchTreeTest {
 
 	BinarySearchTree bst;
 
-	@Before
+	@BeforeEach
 	public void setUp(){
 		bst=new BinarySearchTree();
 		int[] vals= {20,2,34,12,45,7,5};
@@ -28,15 +31,15 @@ public class BinarySearchTreeTest {
 
 	@Test
 	public void searchTest() throws Exception {
-		Assert.assertTrue(bst.search(5));
-		Assert.assertTrue(bst.search(20));
+		assertTrue(bst.search(5));
+		assertTrue(bst.search(20));
 	}
 
 	@Test
 	public void isBSTTest() throws Exception {
 		Node rootNode = bst.getRootNode();
 		rootNode.left.left=new Node(1);
-		Assert.assertTrue(bst.isBST(bst.getRootNode()));
+		assertTrue(bst.isBST(bst.getRootNode()));
 	}
 
 	@Test
@@ -53,7 +56,7 @@ public class BinarySearchTreeTest {
 		Tree.toPrint(removeKeys);
 	}
 
-	@Test @Ignore
+//	@Test
 	public void kthLargestElement() throws Exception {
 		Node rootNode = bst.getRootNode();
 		System.out.println(bst.kthLargestElement(rootNode,6));

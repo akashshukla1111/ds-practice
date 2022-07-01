@@ -1,12 +1,13 @@
 package com.practice.hackerRank;
 
 import com.paper.hackerrank.LargestNum;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 /**
  * Created by akasshukla on 10/22/16.

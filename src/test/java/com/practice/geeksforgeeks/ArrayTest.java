@@ -1,16 +1,15 @@
 package com.practice.geeksforgeeks;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 public class ArrayTest {
 	private Array a;
 	private Integer[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,14};
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		a = new Array();
 
@@ -19,7 +18,7 @@ public class ArrayTest {
 	@Test
 	public void getGCDTest() throws Exception {
 		int gcd = a.getGCD(12, 3);
-		Assert.assertEquals(gcd, 3);
+		Assertions.assertEquals(gcd, 3);
 	}
 
 	@Test
@@ -27,7 +26,7 @@ public class ArrayTest {
 
 		Integer[] rotated = a.rotate(arr, 4);
 		Integer[] actual = { 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4 };
-		Assert.assertArrayEquals(rotated, actual);
+		Assertions.assertArrayEquals(rotated, actual);
 	}
 
 	@Test
@@ -40,7 +39,7 @@ public class ArrayTest {
 	public void rotateArray() throws Exception {
 		Integer[] rotated = a.rotateReverseAlgo(arr,4);
 		Integer[] actual = { 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4 };
-		Assert.assertArrayEquals(rotated, actual);
+		Assertions.assertArrayEquals(rotated, actual);
 	}
 
 	@Test
@@ -48,7 +47,7 @@ public class ArrayTest {
 		 int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,14};
 		int[] rotated = a.blackSwapRotate(arr,0,arr.length-1,5);
 		int[] actual = {6, 7, 8, 9, 10, 11, 12, 13, 14, 1,2,3,4,5};
-		Assert.assertArrayEquals(rotated, actual);
+		Assertions.assertArrayEquals(rotated, actual);
 	}
 
 	@Test
@@ -71,7 +70,7 @@ public class ArrayTest {
 		int[] actual={9, 1 ,8, 3, 7, 5, 6, 4, 2};
 		int[] expected = a.rearrangeMaxandMin(input);
 		System.out.println(Arrays.toString(expected));
-		Assert.assertArrayEquals(expected,actual);
+		Assertions.assertArrayEquals(expected,actual);
 
 	}
 
