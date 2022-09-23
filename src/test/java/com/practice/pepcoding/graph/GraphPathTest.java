@@ -9,23 +9,15 @@ class GraphPathTest {
         GraphNode graphRoute = GraphNode.builder()
                 .add(4, 6)
                 .add(4, 5)
-                .add(5, 4)
                 .add(5, 7)
-                .add(7, 6)
-                .add(7, 5)
                 .add(6, 7)
-                .add(6, 4)
                 .add(6, 8)
-                .add(8, 6)
                 .add(8, 9)
                 .add(8, 10)
                 .add(9, 10)
-                .add(9, 8)
-                .add(10, 9)
-                .add(10, 8)
                 .build();
         GraphPath graphPath = new GraphPath();
-        graphPath.printAllPath(graphRoute,4,10);
+        graphPath.printAllPath(graphRoute, 4, 10);
     }
 
     @Test
@@ -33,22 +25,31 @@ class GraphPathTest {
         GraphNode graphRoute = GraphNode.builder()
                 .add(4, 6)
                 .add(4, 5)
-                .add(5, 4)
                 .add(5, 7)
-                .add(7, 6)
-                .add(7, 5)
                 .add(6, 7)
-                .add(6, 4)
                 .add(6, 8)
-                .add(8, 6)
                 .add(8, 9)
                 .add(8, 10)
                 .add(9, 10)
-                .add(9, 8)
-                .add(10, 9)
-                .add(10, 8)
                 .build();
         GraphPath graphPath = new GraphPath();
-        graphPath.bfsPrint(graphRoute,7);
+        graphPath.bfsPrint(graphRoute, 7);
+    }
+
+    @Test
+    void dejstraFindPath() {
+        GraphNode graphRoute = GraphNode.builder()
+                .add(4, 6, 10)
+                .add(4, 5, 10)
+                .add(5, 7, 20)
+                .add(6, 7, 40)
+                .add(6, 8, 4)
+                .add(8, 9, 7)
+                .add(8, 10, 5)
+                .add(9, 10, 12)
+                .build();
+        GraphPath graphPath = new GraphPath();
+        graphPath.dijkstraPath(graphRoute, 6);
+
     }
 }
