@@ -52,4 +52,20 @@ class GraphPathTest {
         graphPath.dijkstraPath(graphRoute, 6);
 
     }
+
+    @Test
+    void primsAlgo() {
+        GraphNode graphRoute = GraphNode.builder()
+                .add(4, 6, 10)
+                .add(4, 5, 10)
+                .add(5, 7, 20)
+                .add(6, 7, 40)
+                .add(6, 8, 4)
+                .add(8, 9, 7)
+                .add(8, 10, 5)
+                .add(9, 10, 12)
+                .build();
+        GraphPath graphPath = new GraphPath();
+        graphPath.primsAlgo(graphRoute, 6);
+    }
 }

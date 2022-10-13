@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
  */
 public class BinaryBitTest {
     @Test
-    public void findDigitsInBinary() throws Exception {
-            BinaryBit binaryBit=new BinaryBit();
-            Assertions.assertEquals("1111",binaryBit.findDigitsInBinary(15));
+    public void findDigitsInBinary() {
+        Assertions.assertEquals("1111", BinaryBit.findDigitsInBinary(15));
     }
 }
